@@ -2,17 +2,15 @@ package org.example.basic.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.example.basic.model.Speaker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-@Repository("speakerRepository")
+@Repository("speakerRepository2")
 @RequiredArgsConstructor
-public class SpeakerRepositoryImpl implements SpeakerRepository {
+public class SpeakerRepositoryImpl2 implements SpeakerRepository {
 
     private List<Speaker> speakers;
 
@@ -27,8 +25,8 @@ public class SpeakerRepositoryImpl implements SpeakerRepository {
         speakers = new ArrayList<>();
 
         Speaker sp = new Speaker();
-        sp.setFirstName("demoFN");
-        sp.setLastName("demoLN");
+        sp.setFirstName("demoFN2");
+        sp.setLastName("demoLN2");
         addSpeaker(sp);
     }
 
