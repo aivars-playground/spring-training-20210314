@@ -16,7 +16,8 @@ public class AppConfig {
     @Scope(value = BeanDefinition.SCOPE_SINGLETON)      //default value
     public SpeakerService getSpeakerService() {
         System.out.println("--getSpeakerService");
-        return new SpeakerServiceImpl(getSpeakerRepository());
+        //return new SpeakerServiceImpl(getSpeakerRepository());
+        return new SpeakerServiceImpl();
     }
 
     @Bean(name = "speakerRepository")
