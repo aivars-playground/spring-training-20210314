@@ -1,0 +1,5 @@
+# Ignore IntelliJ directory
+.idea
+*.iml
+/target/
+
