@@ -1,5 +1,4 @@
-# Ignore IntelliJ directory
-.idea
+# Intellij
+.idea/
 *.iml
-/target/
-
+*.iws
