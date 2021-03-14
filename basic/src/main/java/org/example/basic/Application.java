@@ -1,8 +1,7 @@
 package org.example.basic;
 
-import lombok.RequiredArgsConstructor;
 import org.example.basic.model.Speaker;
-import org.example.basic.repository.HibernateSpeakerRepositoryImpl;
+import org.example.basic.repository.SpeakerRepositoryImpl;
 import org.example.basic.service.SpeakerService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -13,7 +12,7 @@ public class Application {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
         {
-            HibernateSpeakerRepositoryImpl repo = applicationContext.getBean("speakerRepository", HibernateSpeakerRepositoryImpl.class);
+            SpeakerRepositoryImpl repo = applicationContext.getBean("speakerRepository", SpeakerRepositoryImpl.class);
             Speaker sp = new Speaker();
             sp.setFirstName("demoFN");
             sp.setLastName("demoLN");

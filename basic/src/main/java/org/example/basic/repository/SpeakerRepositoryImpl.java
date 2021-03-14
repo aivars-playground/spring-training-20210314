@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository("speakerRepository")
 @RequiredArgsConstructor
-public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
+public class SpeakerRepositoryImpl implements SpeakerRepository {
 
     private List<Speaker> speakers;
 
