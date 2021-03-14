@@ -2,6 +2,7 @@ package org.example.basic.model;
 
 import javax.validation.constraints.Size;
 
+@lombok.ToString
 public class Speaker {
 
     private String firstName;
