@@ -23,6 +23,11 @@ public class SpeakerRepositoryImpl implements SpeakerRepository {
     private void initialize() {
         System.out.println("post construct");
         speakers = new ArrayList<>();
+
+        Speaker sp = new Speaker();
+        sp.setFirstName("demoFN");
+        sp.setLastName("demoLN");
+        addSpeaker(sp);
     }
 
     public void addSpeaker(Speaker speaker) {
