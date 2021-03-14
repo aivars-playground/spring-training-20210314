@@ -2,15 +2,19 @@ package org.example.basic.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.example.basic.model.Speaker;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Repository("speakerRepository2")
 @RequiredArgsConstructor
 public class SpeakerRepositoryImpl2 implements SpeakerRepository {
+
+    @Qualifier("futureCalendarFactory") private final Calendar calendar;
 
     private List<Speaker> speakers;
 
@@ -31,7 +35,7 @@ public class SpeakerRepositoryImpl2 implements SpeakerRepository {
     }
 
     public void addSpeaker(Speaker speaker) {
-        System.out.println("add:"+speaker);
+        System.out.println(this.getClass() + " add:"+speaker + " @:"+calendar.getTime());
         speakers.add(speaker);
     }
 
