@@ -1,14 +1,21 @@
 package com.example.boot.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "speakers")
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Speaker {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long speaker_id;
+
     private String first_name;
     private String last_name;
     private String title;
@@ -18,6 +25,7 @@ public class Speaker {
     @Lob
     private byte[] speaker_photo;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "speakers")
     private List<Session> sessions;
 

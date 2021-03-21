@@ -1,9 +1,13 @@
 package com.example.boot.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "sessions")
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Session {
 
     @Id
@@ -12,12 +16,12 @@ public class Session {
     private String session_name;
     private String session_description;
     private Integer session_length;
+
     @ManyToMany
     @JoinTable(
             name = "session_speakers",
             joinColumns = @JoinColumn(name = "session_id"),
-            inverseJoinColumns = @JoinColumn(name = "speaker_id")
-    )
+            inverseJoinColumns = @JoinColumn(name = "speaker_id"))
     private List<Speaker> speakers;
 
     public Long getSession_id() {

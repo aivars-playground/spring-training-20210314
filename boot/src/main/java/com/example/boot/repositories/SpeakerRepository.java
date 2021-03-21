@@ -1,6 +1,5 @@
 package com.example.boot.repositories;
 
-import com.example.boot.models.Session;
 import com.example.boot.models.Speaker;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -4,7 +4,6 @@ import com.example.boot.models.Session;
 import com.example.boot.repositories.SessionRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,23 +20,21 @@ public class SessionsController {
         return sessionRepository.findAll();
     }
 
-    @GetMapping
-    @RequestMapping("{id}")
+    @GetMapping("{id}")
     public Session get(@PathVariable Long id) {
         return sessionRepository.getById(id);
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Session create(@RequestBody final Session session) {
+    public Session create(@RequestBody final Session session){
         return sessionRepository.saveAndFlush(session);
     }
 
     @PutMapping("{id}")
-    public Session update(@PathVariable Long id, @RequestBody final Session session) {
-        var existingSession = sessionRepository.getById(id);
+    public Session update(@PathVariable Long id, @RequestBody Session session) {
+        Session existingSession = sessionRepository.getById(id);
         BeanUtils.copyProperties(session, existingSession, "session_id");
-        return sessionRepository.saveAndFlush(session);
+        return sessionRepository.saveAndFlush(existingSession);
     }
 
     @DeleteMapping("{id}")
