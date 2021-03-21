@@ -23,6 +23,7 @@ public class Speaker {
     private String speaker_bio;
 
     @Lob
+    @Type(type="org.hibernate.type.BinaryType")
     private byte[] speaker_photo;
 
     @JsonIgnore
